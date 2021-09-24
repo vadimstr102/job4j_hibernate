@@ -21,5 +21,9 @@
         <mapping class="ru.job4j.onetomany.model.User"/>
         <mapping class="ru.job4j.onetomany.model.Brand"/>
         <mapping class="ru.job4j.onetomany.model.Model"/>
+        <mapping class="ru.job4j.manytomany.model.Address"/>
+        <mapping class="ru.job4j.manytomany.model.Person"/>
+        <mapping class="ru.job4j.manytomany.model.Book"/>
+        <mapping class="ru.job4j.manytomany.model.Author"/>
     </session-factory>
 </hibernate-configuration>
