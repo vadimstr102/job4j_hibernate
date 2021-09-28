@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.car</OriginalElement>
+  <nodes>
+    <node x="-323.0862068965518" y="202.65517241379308">8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.history_owner</node>
+    <node x="248.0" y="6.0">8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.engine</node>
+    <node x="-86.0" y="6.0">8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.car</node>
+    <node x="-448.0" y="6.0">8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.driver</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.history_owner" target="8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.car" relationship="REFERENCES">
+      <point x="60.931034482758776" y="26.655172413793082" />
+      <point x="-119.42241379310354" y="268.31034482758616" />
+      <point x="-119.42241379310354" y="49.68965517241372" />
+      <point x="-44.51724137931029" y="-6.8103448275862775" />
+    </edge>
+    <edge source="8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.history_owner" target="8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.driver" relationship="REFERENCES">
+      <point x="-33.75" y="-39.0" />
+      <point x="-289.3362068965518" y="246.0344827586207" />
+      <point x="-478.51724137931035" y="246.0344827586207" />
+      <point x="-478.51724137931035" y="48.99999999999994" />
+      <point x="-59.34482758620686" y="-7.500000000000057" />
+    </edge>
+    <edge source="8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.car" target="8dab2b63-d1aa-4a65-954b-0562adfb38b8.TABLE:job4j_hibernate.public.engine" relationship="REFERENCES">
+      <point x="40.5" y="38.0" />
+      <point x="151.0" y="94.5" />
+      <point x="151.0" y="49.603448275862064" />
+      <point x="273.8275862068965" y="49.603448275862064" />
+      <point x="273.8275862068965" y="55.89655172413788" />
+      <point x="-18.65517241379314" y="10.396551724137879" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.4499999999999997" showDependencies="false" x="-47.0" y="143.99999999999994" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
