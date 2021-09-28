@@ -16,6 +16,7 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="use_sql_comments">true</property>
+        <property name="hibernate.jdbc.time_zone">Europe/Moscow</property>
 
         <mapping class="ru.job4j.onetomany.model.Role"/>
         <mapping class="ru.job4j.onetomany.model.User"/>
@@ -29,5 +30,6 @@
         <mapping class="ru.job4j.lazy.model.Task"/>
         <mapping class="ru.job4j.lazy.model.BrandBi"/>
         <mapping class="ru.job4j.lazy.model.ModelBi"/>
+        <mapping class="ru.job4j.date.model.Product"/>
     </session-factory>
 </hibernate-configuration>
