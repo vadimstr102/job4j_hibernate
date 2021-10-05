@@ -6,32 +6,31 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ru.job4j.hql.model.Candidate;
+import ru.job4j.hql.model.Vacancy;
+import ru.job4j.hql.model.VacancyBase;
 
 import java.util.List;
 import java.util.function.Function;
 
 public class HbmRun {
     public static void main(String[] args) {
+        Vacancy vacancy1 = new Vacancy("Sber: Junior Java developer");
+        Vacancy vacancy2 = new Vacancy("Tinkoff: Junior Java developer");
+        Vacancy vacancy3 = new Vacancy("Yandex: Junior Java developer");
+        VacancyBase vacancyBase = new VacancyBase();
+        vacancyBase.addVacancy(vacancy1);
+        vacancyBase.addVacancy(vacancy2);
+        vacancyBase.addVacancy(vacancy3);
+        Candidate candidate = new Candidate("Vadim", 1, 100_000);
+        candidate.setVacancyBase(vacancyBase);
+
         HbmRun hbmRun = new HbmRun();
-        Candidate one = new Candidate("Oleg", 5, 500_000);
-        Candidate two = new Candidate("Andrey", 3, 300_000);
-        Candidate three = new Candidate("Vadim", 1, 100_000);
+        hbmRun.saveCandidate(candidate);
+        Candidate candidateFromBase = hbmRun.getCandidateByIdWithVacancies(candidate.getId());
 
-        hbmRun.saveCandidate(one);
-        hbmRun.saveCandidate(two);
-        hbmRun.saveCandidate(three);
-
-        hbmRun.getAllCandidates().forEach(System.out::println);
-        System.out.println(hbmRun.getCandidateById(one.getId()));
-        System.out.println(hbmRun.getCandidateByName(three.getName()));
-
-        two.setExperience(4);
-        two.setSalary(400_000);
-        hbmRun.updateCandidate(two);
-        System.out.println(hbmRun.getCandidateByName(two.getName()));
-
-        hbmRun.deleteCandidate(one.getId());
-        hbmRun.getAllCandidates().forEach(System.out::println);
+        System.out.println(candidateFromBase);
+        System.out.println(candidateFromBase.getVacancyBase());
+        candidateFromBase.getVacancyBase().getVacancies().forEach(System.out::println);
     }
 
     public void saveCandidate(Candidate candidate) {
@@ -47,6 +46,19 @@ public class HbmRun {
     public Candidate getCandidateById(int id) {
         return transaction(
                 session -> session.createQuery("from Candidate where id = :fId", Candidate.class)
+                        .setParameter("fId", id)
+                        .uniqueResult()
+        );
+    }
+
+    public Candidate getCandidateByIdWithVacancies(int id) {
+        return transaction(
+                session -> session.createQuery(
+                                "select distinct c from Candidate c "
+                                        + "join fetch c.vacancyBase vb "
+                                        + "join fetch vb.vacancies v "
+                                        + "where c.id = :fId", Candidate.class
+                        )
                         .setParameter("fId", id)
                         .uniqueResult()
         );

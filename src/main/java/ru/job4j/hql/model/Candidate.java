@@ -13,6 +13,9 @@ public class Candidate {
     private int experience;
     private int salary;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private VacancyBase vacancyBase;
+
     public Candidate() {
     }
 
@@ -52,6 +55,14 @@ public class Candidate {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public VacancyBase getVacancyBase() {
+        return vacancyBase;
+    }
+
+    public void setVacancyBase(VacancyBase vacancyBase) {
+        this.vacancyBase = vacancyBase;
     }
 
     @Override

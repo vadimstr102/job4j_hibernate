@@ -35,5 +35,7 @@
         <mapping class="ru.job4j.carsandowners.model.Car"/>
         <mapping class="ru.job4j.carsandowners.model.Engine"/>
         <mapping class="ru.job4j.hql.model.Candidate"/>
+        <mapping class="ru.job4j.hql.model.VacancyBase"/>
+        <mapping class="ru.job4j.hql.model.Vacancy"/>
     </session-factory>
 </hibernate-configuration>
