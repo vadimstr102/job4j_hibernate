@@ -64,11 +64,11 @@ public class HbmRun {
         );
     }
 
-    public Candidate getCandidateByName(String name) {
+    public List<Candidate> getCandidatesByName(String name) {
         return transaction(
                 session -> session.createQuery("from Candidate where name = :fName", Candidate.class)
                         .setParameter("fName", name)
-                        .uniqueResult()
+                        .list()
         );
     }
 
